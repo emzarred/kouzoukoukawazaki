@@ -1,0 +1,5 @@
+<root>
+    <item name='retrofit2.http.GET java.lang.String value()'>
+        <annotation name='android.support.annotation.NonNull'/>
+    </item>
+</root>
