@@ -29,11 +29,11 @@ public interface ApiInterface {
    @GET("{link}")
    Call<Teams> getAllTeams(@Path ("link") String link);
 
-    @GET("competitions/{Id}/leagueTable")
-    Call<LeagueTable> getLeagueTable(@Path("Id") Integer Id);
+    @GET("{link}")
+    Call<LeagueTable> getLeagueTable(@Path("link") String link);
 
-    @GET("competitions/{Id}/fixtures" )
-    Call<Fixtures> getAllFixtures(@Path ("Id") Integer Id);
+    @GET("{link}" )
+    Call<Fixtures> getAllFixtures(@Path ("link") String link);
 
     @GET("{link}")
     Call<Players> getAllPlayers(@Path("link") String Link);

@@ -1,6 +1,7 @@
 package com.example.pc.footscore.Controllers.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pc.footscore.Adapters.CompAdapter;
@@ -33,8 +35,10 @@ import retrofit2.Retrofit;
  * A simple {@link Fragment} subclass.
  */
 public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+
     ApiClient configRetro = new ApiClient();
     Retrofit retrofit = configRetro.getClient();
+    private  TextView Tv7,Tv8;
 
     List<Competition> list;
     private ApiInterface cmp;
@@ -43,7 +47,7 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
     private static final String KEY_POSITION = "position";
     private static final String KEY_COLOR = "color";
 
-
+    private Context context;
     public CompetitionFragment() {
     }
 
@@ -60,6 +64,7 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
 
         frag.setArguments(args);
 
+
         return (frag);
     }
 
@@ -68,22 +73,24 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // 3 - Get layout of CompetitionFragment
-        View result = inflater.inflate(R.layout.fragment_page, container, false);
+        View result = inflater.inflate(R.layout.fragment_head2_head, container, false);
 
         // 4 - Get widgets from layout and serialise it
         LinearLayout rootView = (LinearLayout) result.findViewById(R.id.fragment_page_rootview);
 
         rv7 = (RecyclerView) result.findViewById(R.id.list);
 
-        //rv8 = (RecyclerView) result.findViewById(R.id.list1);
+        rv8 = (RecyclerView) result.findViewById(R.id.list1);
+        Tv7= (TextView)result.findViewById(R.id.Tv7);
+        //Tv8= (TextView)result.findViewById(R.id.Tv8);
 
 
         spr = (SwipeRefreshLayout) result.findViewById(R.id.swipe);
         spr.setOnRefreshListener((SwipeRefreshLayout.OnRefreshListener) this);
         rv7.setLayoutManager(new LinearLayoutManager(getContext()));
-        // rv8.setLayoutManager(new LinearLayoutManager(getContext()));
-        getCompetitions_7();
-        // getCompetitions_8();
+        rv8.setLayoutManager(new LinearLayoutManager(getContext()));
+        getCompetitions(2017);
+        getCompetitions_8(2018);
 
 
         // 5 - Get data from Bundle (created in method newInstance)
@@ -100,9 +107,9 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
         return result;
     }
 
-    private void getCompetitions_7() {
+    private void getCompetitions(int Saison) {
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
-        Call<List<Competition>> call = cmp.getAllCompetitions(2017);
+        Call<List<Competition>> call = cmp.getAllCompetitions(Saison);
         call.enqueue(new Callback<List<Competition>>() {
             @Override
             public void onResponse(Call<List<Competition>> call, Response<List<Competition>> response) {
@@ -115,8 +122,9 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
 
             @Override
             public void onFailure(Call<List<Competition>> call, Throwable t) {
-
-Toast.makeText(getContext(),"connection faild try again!",Toast.LENGTH_SHORT).show();
+                Tv7.setVisibility(View.GONE);
+                Tv8.setVisibility(View.GONE);
+                Toast.makeText(getContext(),"connection faild try again!",Toast.LENGTH_SHORT).show();
             }
 
 
@@ -124,29 +132,30 @@ Toast.makeText(getContext(),"connection faild try again!",Toast.LENGTH_SHORT).sh
 
     }
 
-    /*  private void getCompetitions_8() {
-          final ApiInterface cmp = retrofit.create(ApiInterface.class);
-          Call<List<Competition>> call = cmp.getAllCompetitions("2018");
-          call.enqueue(new Callback<List<Competition>>() {
-              @Override
-              public void onResponse(Call<List<Competition>> call, Response<List<Competition>> response) {
+    private void getCompetitions_8(int Saison) {
+        final ApiInterface cmp = retrofit.create(ApiInterface.class);
+        Call<List<Competition>> call = cmp.getAllCompetitions(Saison);
+        call.enqueue(new Callback<List<Competition>>() {
+            @Override
+            public void onResponse(Call<List<Competition>> call, Response<List<Competition>> response) {
 
-                  List<Competition> list = (List<Competition>) response.body();
-                  rv8.setAdapter(new CompAdapter(list));
-
-
-              }
-
-              @Override
-              public void onFailure(Call<List<Competition>> call, Throwable t) {
+                List<Competition> list = (List<Competition>) response.body();
+                rv8.setAdapter(new CompAdapter(list));
 
 
-              }
+            }
+
+            @Override
+            public void onFailure(Call<List<Competition>> call, Throwable t) {
 
 
-          });
 
-      }*/
+            }
+
+
+        });
+
+    }
     @Override
     public void onRefresh() {
         Toast.makeText(getContext(), "Refresh", Toast.LENGTH_SHORT).show();
@@ -156,8 +165,8 @@ Toast.makeText(getContext(),"connection faild try again!",Toast.LENGTH_SHORT).sh
                 spr.setRefreshing(false);
             }
         }, 2000);
-        getCompetitions_7();
-        // getCompetitions_8();
+        getCompetitions(2017);
+        getCompetitions_8(2018);
 
     }
-}
+        }

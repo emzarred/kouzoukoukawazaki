@@ -22,45 +22,54 @@ import java.util.List;
  */
 
 
-public  class CompAdapter extends RecyclerView.Adapter {
+public class CompAdapter extends RecyclerView.Adapter {
     private List<Competition> list;
     public static int Id;
+    public static String newHrefE, newHrefC, newHrefF;
+    public static String hrefE, hrefC, hrefF;
 
-    public static String href;
 
-public static String xc;
-
-    public CompAdapter(List<Competition> list)
-    {
-        this.list = list;
+    public CompAdapter(List<Competition> list) {
+        this.list=list;
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.comp_cell, parent, false);
+        LayoutInflater inflater=LayoutInflater.from(parent.getContext());
+        View view=inflater.inflate(R.layout.comp_cell, parent, false);
         return new CompAdapter.ViewHolder(view);
     }
 
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final Competition competition = list.get(position);
+        final Competition competition=list.get(position);
 
-        CompAdapter.ViewHolder.caption.setText(competition.getCaption() +  "(" + String.valueOf(competition.getCurrentMatchday()) +"/" + String.valueOf(competition.getNumberOfMatchdays()) + ")");
+        CompAdapter.ViewHolder.caption.setText(competition.getCaption() + "(" + String.valueOf(competition.getCurrentMatchday()) + "/" + String.valueOf(competition.getNumberOfMatchdays()) + ")");
         ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Id=competition.getId();
+                Links link=competition.getLinks();
+                String hrefE=link.getTeams().getHref();
+                newHrefE=hrefE.substring(32, 54);
 
-           //href=competition.getLinks().getTeams().getHref().substring(24, 22);
+
+                String hrefC=link.getLeagueTable().getHref();
+                newHrefC=hrefC.substring(32, 60);
+
+                String hrefF=link.getFixtures().getHref();
+                newHrefF=hrefF.substring(32, 57);
+                // href=competition.getLinks().getTeams().getHref().substring(24, 22);
                 //Toast.makeText(ViewHolder.caption.getContext(), "cc "+href, Toast.LENGTH_SHORT).show();
 
-                Intent intent=new Intent(ViewHolder.caption.getContext(),DetailActivity.class);
+                Intent intent=new Intent(ViewHolder.caption.getContext(), DetailActivity.class);
                 ViewHolder.caption.getContext().startActivity(intent);
             }
         });
 
     }
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -83,13 +92,12 @@ public static String xc;
         public ViewHolder(View v) {
             super(v);
 
-            caption = (TextView) v.findViewById(R.id.TvCap);
+            caption=(TextView) v.findViewById(R.id.TvCap);
 
 
         }
 
     }
-
 
 
 }

@@ -107,7 +107,7 @@ public class FixturesFragment extends Fragment implements SwipeRefreshLayout.OnR
 
 
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
-        Call<Fixtures> call = cmp.getAllFixtures(CompAdapter.Id);
+        Call<Fixtures> call = cmp.getAllFixtures(CompAdapter.newHrefF);
 
 
         call.enqueue(new Callback<Fixtures>() {

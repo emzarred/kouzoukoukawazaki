@@ -96,7 +96,7 @@ public class LeagueTabFragment extends Fragment implements SwipeRefreshLayout.On
 
     private void getTab() {
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
-        Call<LeagueTable> call = cmp.getLeagueTable(CompAdapter.Id);
+        Call<LeagueTable> call = cmp.getLeagueTable(CompAdapter.newHrefC);
 
         call.enqueue(new Callback<LeagueTable>() {
             @Override

@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 
 import com.ahmadrosid.svgloader.SvgLoader;
+import com.example.pc.footscore.Models.TeamsModele.Links;
+import com.example.pc.footscore.Models.TeamsModele.Links_;
 import com.example.pc.footscore.Models.TeamsModele.Team;
 import com.example.pc.footscore.R;
 
@@ -25,6 +27,7 @@ import java.util.List;
  */
 
 public class TeamAdapter extends RecyclerView.Adapter {
+    public static String newHref;
 
     private List<Team>list;
 public static Context context;
@@ -51,10 +54,7 @@ public static String href;
         final Team team = list.get(position);
 
         Log.d("TeamAdapter", "onBindViewHolder: "+team.getCrestUrl());
-        /*Picasso.with(context).load(team.getCrestUrl())
-                .fit().centerCrop()
-                .placeholder(R.drawable.ic_date_range_white_48dp)
-                .into( ViewHolder.flag);*/
+
 
         SvgLoader.pluck()
                 .with(activity)
@@ -64,7 +64,10 @@ public static String href;
         ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                href=team.getLinks().getPlayers().getHref();
+                //href=team.getLinks().getPlayers().getHref();
+                Links_ link=team.getLinks();
+                String href=link.getPlayers().getHref();
+                newHref = href.substring(32, 49);
                 Intent intent=new Intent(ViewHolder.caption.getContext(),TeamDetail.class);
                 ViewHolder.caption.getContext().startActivity(intent);
             }

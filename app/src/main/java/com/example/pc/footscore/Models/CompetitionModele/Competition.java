@@ -9,8 +9,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Competition {
 
-    /*@SerializedName("_links")
-    @Expose*/
+    @SerializedName("_links")
+    @Expose
     private Links links;
     @SerializedName("id")
     @Expose
