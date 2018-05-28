@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.pc.footscore.Adapters.CompAdapter;
-import com.example.pc.footscore.Models.Competition;
+import com.example.pc.footscore.Models.CompetitionModele.Competition;
 import com.example.pc.footscore.R;
 import com.example.pc.footscore.Retrofits.ApiClient;
 import com.example.pc.footscore.Retrofits.ApiInterface;

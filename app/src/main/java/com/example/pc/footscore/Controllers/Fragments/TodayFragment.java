@@ -14,11 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pc.footscore.Adapters.FixturesAdapter;
 import com.example.pc.footscore.Adapters.TodayAdapter;
-import com.example.pc.footscore.Models.Competition;
 import com.example.pc.footscore.Models.Fixture;
-import com.example.pc.footscore.Models.Fixtures;
 import com.example.pc.footscore.Models.Today;
 import com.example.pc.footscore.R;
 import com.example.pc.footscore.Retrofits.ApiClient;

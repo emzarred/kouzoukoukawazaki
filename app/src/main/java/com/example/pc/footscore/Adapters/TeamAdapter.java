@@ -30,6 +30,7 @@ public class TeamAdapter extends RecyclerView.Adapter {
 public static Context context;
 private ImageView flag;
 private Activity activity;
+public static String href;
     public TeamAdapter(List<Team> list, Context context, Activity activity) {
         this.list=list;
         this.context=context;
@@ -47,7 +48,7 @@ private Activity activity;
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Team team = list.get(position);
+        final Team team = list.get(position);
 
         Log.d("TeamAdapter", "onBindViewHolder: "+team.getCrestUrl());
         /*Picasso.with(context).load(team.getCrestUrl())
@@ -60,13 +61,14 @@ private Activity activity;
                 .setPlaceHolder(R.drawable.notfound,R.drawable.notfound)
                 .load(team.getCrestUrl(), ViewHolder.flag);
         ViewHolder.caption.setText(team.getName());
-        /*ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
+        ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                href=team.getLinks().getPlayers().getHref();
                 Intent intent=new Intent(ViewHolder.caption.getContext(),TeamDetail.class);
                 ViewHolder.caption.getContext().startActivity(intent);
             }
-        });*/
+        });
 
     }
     @Override

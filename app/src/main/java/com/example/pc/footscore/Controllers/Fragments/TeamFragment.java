@@ -107,7 +107,7 @@ public class TeamFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
 
-        Call<Teams> call = cmp.getAllTeams(CompAdapter.href);
+        Call<Teams> call = cmp.getAllTeams(CompAdapter.Id);
         Log.d("TeamView", "onResponse: "+call);
         call.enqueue(new Callback<Teams>() {
             @Override

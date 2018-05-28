@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.pc.footscore.Models.Competition;
-import com.example.pc.footscore.Models.TeamsModele.Links_;
+import com.example.pc.footscore.Models.CompetitionModele.Competition;
+import com.example.pc.footscore.Models.CompetitionModele.Links;
+import com.example.pc.footscore.Models.CompetitionModele.Teams;
 import com.example.pc.footscore.R;
 import com.example.pc.footscore.Views.DetailActivity;
 
@@ -23,7 +25,7 @@ import java.util.List;
 public  class CompAdapter extends RecyclerView.Adapter {
     private List<Competition> list;
     public static int Id;
-    public Links_ link;
+
     public static String href;
 
 public static String xc;
@@ -49,8 +51,9 @@ public static String xc;
             @Override
             public void onClick(View view) {
                 Id=competition.getId();
-            href=link.getSelf().getHref();
-            String hrefSub = href.substring(24, 22);
+
+           //href=competition.getLinks().getTeams().getHref().substring(24, 22);
+                //Toast.makeText(ViewHolder.caption.getContext(), "cc "+href, Toast.LENGTH_SHORT).show();
 
                 Intent intent=new Intent(ViewHolder.caption.getContext(),DetailActivity.class);
                 ViewHolder.caption.getContext().startActivity(intent);

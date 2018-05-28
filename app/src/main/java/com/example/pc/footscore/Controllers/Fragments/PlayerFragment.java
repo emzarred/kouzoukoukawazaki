@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.pc.footscore.Adapters.PlayAdapter;
 
+import com.example.pc.footscore.Adapters.TeamAdapter;
 import com.example.pc.footscore.Models.Player;
 import com.example.pc.footscore.Models.Players;
 import com.example.pc.footscore.R;
@@ -93,7 +94,7 @@ public class PlayerFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
     private void getPlayers() {
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
-        Call<Players> call = cmp.getAllPlayers();
+        Call<Players> call = cmp.getAllPlayers(TeamAdapter.href);
 
         call.enqueue(new Callback<Players>() {
             @Override

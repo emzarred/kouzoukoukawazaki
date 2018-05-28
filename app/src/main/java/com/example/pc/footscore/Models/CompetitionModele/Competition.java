@@ -1,4 +1,4 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.CompetitionModele;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -8,6 +8,10 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Competition {
+
+    /*@SerializedName("_links")
+    @Expose*/
+    private Links links;
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -35,15 +39,15 @@ public class Competition {
     @SerializedName("lastUpdated")
     @Expose
     private String lastUpdated;
-    /*
-        public Links getLinks() {
-            return links;
-        }
 
-        public void setLinks(Links links) {
-            this.links = links;
-        }
-    */
+    public Links getLinks() {
+        return links;
+    }
+
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
     public Integer getId() {
         return id;
     }

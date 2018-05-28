@@ -1,7 +1,7 @@
 package com.example.pc.footscore.Retrofits;
 
 
-import com.example.pc.footscore.Models.Competition;
+import com.example.pc.footscore.Models.CompetitionModele.Competition;
 import com.example.pc.footscore.Models.Fixtures;
 import com.example.pc.footscore.Models.LeagueTable;
 import com.example.pc.footscore.Models.Players;
@@ -24,7 +24,7 @@ public interface ApiInterface {
     @GET("competitions/")
     Call<List<Competition>> getAllCompetitions(@Query("season") Integer year);
 
-   /* @GET("competitions/{Id}/teams")
+   /*@GET("competitions/{Id}/teams")
     Call<Teams> getAllTeams(@Path ("Id") Integer Id);*/
    @GET("{link}")
    Call<Teams> getAllTeams(@Path ("link") String link);
@@ -35,8 +35,8 @@ public interface ApiInterface {
     @GET("competitions/{Id}/fixtures" )
     Call<Fixtures> getAllFixtures(@Path ("Id") Integer Id);
 
-    @GET("teams/66/players")
-    Call<Players> getAllPlayers();
+    @GET("{link}")
+    Call<Players> getAllPlayers(@Path("link") String Link);
 
     @GET("fixtures")
     Call<Today> getAllMatchs();
