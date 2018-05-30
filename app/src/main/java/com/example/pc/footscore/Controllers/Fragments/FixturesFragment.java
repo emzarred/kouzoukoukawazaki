@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.example.pc.footscore.Adapters.CompAdapter;
 import com.example.pc.footscore.Adapters.FixturesAdapter;
-import com.example.pc.footscore.Models.Fixture;
-import com.example.pc.footscore.Models.Fixtures;
-import com.example.pc.footscore.Models.Result;
+import com.example.pc.footscore.Models.FixturesModele.Fixture;
+import com.example.pc.footscore.Models.FixturesModele.Fixtures;
+import com.example.pc.footscore.Models.FixturesModele.Result;
 import com.example.pc.footscore.R;
 import com.example.pc.footscore.Retrofits.ApiClient;
 import com.example.pc.footscore.Retrofits.ApiInterface;

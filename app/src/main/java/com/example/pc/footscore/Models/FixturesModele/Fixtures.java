@@ -1,4 +1,4 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.FixturesModele;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,19 +6,13 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by pc on 08/05/2018.
+ * Created by pc on 01/05/2018.
  */
 
-public class TeamFix {
+public class Fixtures {
    /* @SerializedName("_links")
     @Expose
     private Links links;*/
-    @SerializedName("timeFrameStart")
-    @Expose
-    private String timeFrameStart;
-    @SerializedName("timeFrameEnd")
-    @Expose
-    private String timeFrameEnd;
     @SerializedName("count")
     @Expose
     private Integer count;
@@ -33,22 +27,6 @@ public class TeamFix {
     public void setLinks(Links links) {
         this.links = links;
     }*/
-
-    public String getTimeFrameStart() {
-        return timeFrameStart;
-    }
-
-    public void setTimeFrameStart(String timeFrameStart) {
-        this.timeFrameStart = timeFrameStart;
-    }
-
-    public String getTimeFrameEnd() {
-        return timeFrameEnd;
-    }
-
-    public void setTimeFrameEnd(String timeFrameEnd) {
-        this.timeFrameEnd = timeFrameEnd;
-    }
 
     public Integer getCount() {
         return count;

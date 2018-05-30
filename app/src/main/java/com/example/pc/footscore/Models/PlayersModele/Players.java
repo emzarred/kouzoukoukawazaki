@@ -1,5 +1,6 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.PlayersModele;
 
+import com.example.pc.footscore.Models.Links;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

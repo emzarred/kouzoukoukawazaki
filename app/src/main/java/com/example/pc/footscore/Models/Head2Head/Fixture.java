@@ -1,14 +1,15 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.Head2Head;
 
+import com.example.pc.footscore.Models.FixturesModele.Result;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by pc on 01/05/2018.
+ * Created by pc on 30/05/2018.
  */
 
 public class Fixture {
-  /*  @SerializedName("_links")
+    /*  @SerializedName("_links")
     @Expose
     private Links_ links;*/
     @SerializedName("date")

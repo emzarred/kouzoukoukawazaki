@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pc.footscore.Models.Standing;
+import com.example.pc.footscore.Models.LeagueTableModele.Standing;
 import com.example.pc.footscore.R;
 
 import java.util.List;

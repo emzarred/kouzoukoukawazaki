@@ -6,8 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pc.footscore.Models.Player;
-import com.example.pc.footscore.Models.Players;
+import com.example.pc.footscore.Models.PlayersModele.Player;
 import com.example.pc.footscore.R;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class PlayAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(parent.getContext());
-        View view=inflater.inflate(R.layout.comp_cell,parent,false);
+        View view=inflater.inflate(R.layout.player_cell,parent,false);
         return new PlayAdapter.ViewHolder(view);
     }
 
@@ -35,7 +34,11 @@ public class PlayAdapter extends RecyclerView.Adapter {
         Player player = list.get(position);
 
 
-        PlayAdapter.ViewHolder.caption.setText(player.getName());
+
+        ViewHolder.Nom.setText(player.getName() + "     (" + player.getNationality() + ")");
+        ViewHolder.Date.setText("Date of birth: " +player.getDateOfBirth() );
+        ViewHolder.Pos.setText(player.getPosition()+ "       JerseyNum:" + (player.getJerseyNumber()).toString());
+        ViewHolder.Num.setText( "ContractUtil:   "+player.getContractUntil());
     }
 
     @Override
@@ -55,7 +58,7 @@ public class PlayAdapter extends RecyclerView.Adapter {
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        static TextView caption;
+        static TextView Nom,Num,Date,Pos;
 
 
 
@@ -63,8 +66,10 @@ public class PlayAdapter extends RecyclerView.Adapter {
         public ViewHolder(View v) {
             super(v);
 
-            caption = (TextView) v.findViewById(R.id.TvCap);
-
+            Nom  = (TextView) v.findViewById(R.id.TvNom);
+            Num  = (TextView) v.findViewById(R.id.TvNum);
+            Date = (TextView) v.findViewById(R.id.TvDate);
+            Pos  =(TextView)v.findViewById(R.id.TvPos);
 
         }
     }

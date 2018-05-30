@@ -1,13 +1,13 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.TeamFixModele;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by pc on 01/05/2018.
+ * Created by pc on 30/05/2018.
  */
 
-public class Result {
+public class HalfTime {
     @SerializedName("goalsHomeTeam")
     @Expose
     private Integer goalsHomeTeam;

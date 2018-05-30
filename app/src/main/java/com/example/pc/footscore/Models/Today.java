@@ -1,5 +1,6 @@
 package com.example.pc.footscore.Models;
 
+import com.example.pc.footscore.Models.FixturesModele.Fixture;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

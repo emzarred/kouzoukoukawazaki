@@ -8,8 +8,6 @@
     android:gravity="center">
 
 
-
-
     <TextView
         android:id="@+id/fragment_page_title"
         android:layout_width="221dp"

@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 import com.example.pc.footscore.Adapters.CompAdapter;
 import com.example.pc.footscore.Adapters.TabAdapter;
-import com.example.pc.footscore.Models.LeagueTable;
-import com.example.pc.footscore.Models.Standing;
+import com.example.pc.footscore.Models.LeagueTableModele.LeagueTable;
+import com.example.pc.footscore.Models.LeagueTableModele.Standing;
 import com.example.pc.footscore.R;
 import com.example.pc.footscore.Retrofits.ApiClient;
 import com.example.pc.footscore.Retrofits.ApiInterface;

@@ -1,9 +1,7 @@
 package com.example.pc.footscore.Adapters;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.SurfaceView;
-import android.widget.ViewAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.example.pc.footscore.Controllers.Fragments.FavoritFragment;
-import com.example.pc.footscore.Models.Fixture;
-import com.example.pc.footscore.Models.Today;
+import com.example.pc.footscore.Models.FixturesModele.Fixture;
 import com.example.pc.footscore.R;
 
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.LeagueTableModele;
 
 /**
  * Created by pc on 27/04/2018.
@@ -6,6 +6,7 @@ package com.example.pc.footscore.Models;
 
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

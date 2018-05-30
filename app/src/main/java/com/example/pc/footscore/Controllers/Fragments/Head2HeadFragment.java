@@ -1,7 +1,5 @@
 package com.example.pc.footscore.Controllers.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -15,10 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pc.footscore.Adapters.TeamAdapter;
 import com.example.pc.footscore.Adapters.TeamFixAdapter;
-import com.example.pc.footscore.Models.Fixture;
-import com.example.pc.footscore.Models.Result;
-import com.example.pc.footscore.Models.TeamFix;
+
+import com.example.pc.footscore.Models.TeamFixModele.Fixture;
+import com.example.pc.footscore.Models.TeamFixModele.Result;
+import com.example.pc.footscore.Models.TeamFixModele.TeamFix;
 import com.example.pc.footscore.R;
 import com.example.pc.footscore.Retrofits.ApiClient;
 import com.example.pc.footscore.Retrofits.ApiInterface;
@@ -37,8 +37,7 @@ import retrofit2.Retrofit;
 public class Head2HeadFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     ApiClient configRetro = new ApiClient();
     Retrofit retrofit = configRetro.getClient();
-
-    List<Fixture> list;
+List<Fixture> list;
     List<Result>list1;
 
     private ApiInterface cmp;
@@ -100,7 +99,7 @@ public class Head2HeadFragment extends Fragment implements SwipeRefreshLayout.On
 
     private void getMatches() {
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
-        Call<TeamFix> call = cmp.getAllFutureFixtures("away");
+        Call<TeamFix> call = cmp.getAllFutureFixtures(TeamAdapter.newHrefF,"away");
 
 
 

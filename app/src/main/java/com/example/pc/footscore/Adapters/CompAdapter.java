@@ -23,7 +23,7 @@ import java.util.List;
 
 
 public class CompAdapter extends RecyclerView.Adapter {
-    private List<Competition> list;
+    public static List<Competition> list;
     public static int Id;
     public static String newHrefE, newHrefC, newHrefF;
     public static String hrefE, hrefC, hrefF;
@@ -42,14 +42,17 @@ public class CompAdapter extends RecyclerView.Adapter {
 
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
         final Competition competition=list.get(position);
+        holder.setIsRecyclable(false);
 
         CompAdapter.ViewHolder.caption.setText(competition.getCaption() + "(" + String.valueOf(competition.getCurrentMatchday()) + "/" + String.valueOf(competition.getNumberOfMatchdays()) + ")");
         ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Id=competition.getId();
+               /* holder.getAdapterPosition();
+                holder.setIsRecyclable(false);*/
                 Links link=competition.getLinks();
                 String hrefE=link.getTeams().getHref();
                 newHrefE=hrefE.substring(32, 54);

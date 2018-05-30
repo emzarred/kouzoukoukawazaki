@@ -1,4 +1,4 @@
-package com.example.pc.footscore.Models;
+package com.example.pc.footscore.Models.LeagueTableModele;
 
 /**
  * Created by pc on 27/04/2018.

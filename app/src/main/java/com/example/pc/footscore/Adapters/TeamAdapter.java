@@ -34,6 +34,7 @@ public static Context context;
 private ImageView flag;
 private Activity activity;
 public static String href;
+public static String newHrefF;
     public TeamAdapter(List<Team> list, Context context, Activity activity) {
         this.list=list;
         this.context=context;
@@ -50,7 +51,7 @@ public static String href;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         final Team team = list.get(position);
 
         Log.d("TeamAdapter", "onBindViewHolder: "+team.getCrestUrl());
@@ -61,13 +62,18 @@ public static String href;
                 .setPlaceHolder(R.drawable.notfound,R.drawable.notfound)
                 .load(team.getCrestUrl(), ViewHolder.flag);
         ViewHolder.caption.setText(team.getName());
+        holder.setIsRecyclable(false);
         ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //href=team.getLinks().getPlayers().getHref();
+                holder.getAdapterPosition();
                 Links_ link=team.getLinks();
                 String href=link.getPlayers().getHref();
+
                 newHref = href.substring(32, 49);
+                String hrefF=link.getFixtures().getHref();
+
+                newHrefF=hrefF.substring(32,50);
                 Intent intent=new Intent(ViewHolder.caption.getContext(),TeamDetail.class);
                 ViewHolder.caption.getContext().startActivity(intent);
             }
@@ -96,13 +102,7 @@ static String test;
             super(v);
             flag=(ImageView)v.findViewById(R.id.flag);
             caption = (TextView) v.findViewById(R.id.TvCap);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent=new Intent(itemView.getContext(),TeamDetail.class);
-                    itemView.getContext().startActivity(intent);
-                }
-            });
+
 
 
         }
