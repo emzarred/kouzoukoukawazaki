@@ -1,16 +1,14 @@
 package com.example.pc.footscore.Adapters;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pc.footscore.Models.CompetitionModele.Competition;
-import com.example.pc.footscore.Models.CompetitionModele.Links;
+import com.example.pc.footscore.Controllers.Fragments.Head2HeadFragment;
+import com.example.pc.footscore.Models.Head2Head.Head2head;
 import com.example.pc.footscore.R;
-import com.example.pc.footscore.Views.DetailActivity;
 
 import java.util.List;
 
@@ -19,8 +17,8 @@ import java.util.List;
  */
 
 public class HeadsAdapter extends RecyclerView.Adapter {
-
-    public HeadsAdapter(List<Competition> list) {
+private List <Head2head> list;
+    public HeadsAdapter(List<Head2head> list) {
         this.list=list;
     }
 
@@ -34,7 +32,8 @@ public class HeadsAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
-
+        Head2head head =list.get(position);
+        ViewHolder.caption.setText("home team wins: "+ head.getHomeTeamWins()+ "draws: "+ head.getDraws()+ "away team wins: "+ head.getAwayTeamWins() );
 
 
     }

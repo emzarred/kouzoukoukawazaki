@@ -9,7 +9,7 @@ import java.util.List;
  * Created by pc on 09/05/2018.
  */
 
-class Head2head {
+public class Head2head {
     @SerializedName("count")
     @Expose
     private Integer count;

@@ -1,5 +1,6 @@
 package com.example.pc.footscore.Adapters;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.pc.footscore.Models.TeamFixModele.Fixture;
 import com.example.pc.footscore.R;
+import com.example.pc.footscore.Views.DetailActivity;
+import com.example.pc.footscore.Views.Head2head1ctivity;
 
 import java.util.List;
 
@@ -41,6 +44,14 @@ public class TeamFixAdapter extends RecyclerView.Adapter {
         TeamFixAdapter.ViewHolder.TvHome.setText(fixture.getHomeTeamName());
          TeamFixAdapter.ViewHolder.TvScore.setText("Half Time: "+ fixture.getResult().getHalfTime().getGoalsHomeTeam()+"-" + fixture.getResult().getHalfTime().getGoalsAwayTeam() + "Finish Time: "+fixture.getResult().getGoalsHomeTeam() + " - " + fixture.getResult().getGoalsAwayTeam() );
         TeamFixAdapter.ViewHolder.TvAway.setText(fixture.getAwayTeamName());
+        ViewHolder.TvHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(ViewHolder.TvHome.getContext(), Head2head1ctivity.class);
+                ViewHolder.TvHome.getContext().startActivity(intent);
+            }
+        });
     }
     @Override
     public long getItemId(int position) {
@@ -70,6 +81,7 @@ public class TeamFixAdapter extends RecyclerView.Adapter {
             TvHome=(TextView)v.findViewById(R.id.TvHome);
             TvScore=(TextView)v.findViewById(R.id.TvScore);
             TvAway=(TextView)v.findViewById(R.id.TvAway);
+
 
 
         }

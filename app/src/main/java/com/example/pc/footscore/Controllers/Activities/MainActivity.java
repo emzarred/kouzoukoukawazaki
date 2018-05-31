@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         this.configureViewPagerAndTabs();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        setSupportActionBar(toolbar);
-       getSupportActionBar().setDisplayShowTitleEnabled(false);
+       getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
     }

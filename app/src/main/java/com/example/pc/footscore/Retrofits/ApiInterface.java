@@ -3,6 +3,8 @@ package com.example.pc.footscore.Retrofits;
 
 import com.example.pc.footscore.Models.CompetitionModele.Competition;
 import com.example.pc.footscore.Models.FixturesModele.Fixtures;
+import com.example.pc.footscore.Models.Head2Head.Head2head;
+import com.example.pc.footscore.Models.Head2Head.Heads;
 import com.example.pc.footscore.Models.LeagueTableModele.LeagueTable;
 import com.example.pc.footscore.Models.PlayersModele.Players;
 import com.example.pc.footscore.Models.TeamFixModele.TeamFix;
@@ -43,6 +45,9 @@ public interface ApiInterface {
 
     @GET("{link}")
     Call<TeamFix> getAllFutureFixtures(@Path("link") String Link,@Query("venue") String venue);
+
+    @GET ("http://api.football-data.org/v1/fixtures/149461")
+    Call<Head2head> getAllHeads();
 
 
 }
