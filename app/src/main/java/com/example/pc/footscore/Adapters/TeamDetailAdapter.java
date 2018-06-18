@@ -47,11 +47,11 @@ public class TeamDetailAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return ("Players");
+                return ("Joueurs");
             case 1:
-                return ("Home Played");
+                return ("intérieur");
             case 2:
-                return ("Away Played");
+                return ("extérieur");
         }
         return null;
 

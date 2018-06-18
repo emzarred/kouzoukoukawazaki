@@ -1,16 +1,16 @@
-package com.example.pc.footscore.Models.Head2Head;
+package com.example.pc.footscore.Models.EmerFixture;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by pc on 09/05/2018.
+ * Created by pc on 11/06/2018.
  */
 
-public class LastAwayWinAwayTeam {
-   /* @SerializedName("_links")
+class LastWinAwayTeam {
+    /*@SerializedName("_links")
     @Expose
-    private Links___ links;*/
+    private Links____ links;*/
     @SerializedName("date")
     @Expose
     private String date;
@@ -28,16 +28,15 @@ public class LastAwayWinAwayTeam {
     private String awayTeamName;
     @SerializedName("result")
     @Expose
-    private Result___ result;
-   /* @SerializedName("odds")
-    @Expose
-    private Odds_ odds;
+    private Result____ result;
 
-    public Links___ getLinks() {
+    //private Odds odds;
+
+   /* public Links____ getLinks() {
         return links;
     }
 
-    public void setLinks(Links___ links) {
+    public void setLinks(Links____ links) {
         this.links = links;
     }*/
 
@@ -81,20 +80,19 @@ public class LastAwayWinAwayTeam {
         this.awayTeamName = awayTeamName;
     }
 
-    public Result___ getResult() {
+    public Result____ getResult() {
         return result;
     }
 
-    public void setResult(Result___ result) {
+    public void setResult(Result____ result) {
         this.result = result;
     }
 
-   /* public Odds_ getOdds() {
+   /* public Odds getOdds() {
         return odds;
     }
 
-    public void setOdds(Odds_ odds) {
+    public void setOdds(Odds odds) {
         this.odds = odds;
     }*/
-
 }

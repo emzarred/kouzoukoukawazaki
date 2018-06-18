@@ -108,6 +108,7 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
     }
 
     private void getCompetitions(int Saison) {
+        try{
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
         Call<List<Competition>> call = cmp.getAllCompetitions(Saison);
         call.enqueue(new Callback<List<Competition>>() {
@@ -128,7 +129,11 @@ public class CompetitionFragment extends Fragment implements SwipeRefreshLayout.
             }
 
 
-        });
+        });}
+        catch(Exception e) {
+            Toast.makeText(getContext(),"there are not available informations",Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 

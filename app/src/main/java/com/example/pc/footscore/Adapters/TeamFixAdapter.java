@@ -9,8 +9,7 @@ import android.widget.TextView;
 
 import com.example.pc.footscore.Models.TeamFixModele.Fixture;
 import com.example.pc.footscore.R;
-import com.example.pc.footscore.Views.DetailActivity;
-import com.example.pc.footscore.Views.Head2head1ctivity;
+import com.example.pc.footscore.Views.Head2headActivity;
 
 import java.util.List;
 
@@ -48,7 +47,7 @@ public class TeamFixAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(ViewHolder.TvHome.getContext(), Head2head1ctivity.class);
+                Intent intent=new Intent(ViewHolder.TvHome.getContext(), Head2headActivity.class);
                 ViewHolder.TvHome.getContext().startActivity(intent);
             }
         });

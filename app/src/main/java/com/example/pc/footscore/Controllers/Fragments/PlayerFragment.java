@@ -93,7 +93,9 @@ public class PlayerFragment extends Fragment implements SwipeRefreshLayout.OnRef
     }
 
     private void getPlayers() {
+        try{
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
+        Players play=null;
         Call<Players> call = cmp.getAllPlayers(TeamAdapter.newHref);
 
         call.enqueue(new Callback<Players>() {
@@ -109,7 +111,11 @@ public class PlayerFragment extends Fragment implements SwipeRefreshLayout.OnRef
                 Toast.makeText(getContext(), "verifie", Toast.LENGTH_SHORT).show();
             }
 
-        });
+        });}
+        catch(Exception e ){
+            Toast.makeText(getContext(),"there are",Toast.LENGTH_SHORT);
+        }
+
 
     }
 

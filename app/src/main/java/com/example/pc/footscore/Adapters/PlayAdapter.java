@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pc.footscore.Models.PlayersModele.Player;
+import com.example.pc.footscore.Models.PlayersModele.Players;
 import com.example.pc.footscore.R;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class PlayAdapter extends RecyclerView.Adapter {
     private List<Player>list;
+    private Players play;
     public PlayAdapter(List<Player> list) {this.list=list;
 
 
@@ -36,9 +38,14 @@ public class PlayAdapter extends RecyclerView.Adapter {
 
 
         ViewHolder.Nom.setText(player.getName() + "     (" + player.getNationality() + ")");
+
         ViewHolder.Date.setText("Date of birth: " +player.getDateOfBirth() );
+
         ViewHolder.Pos.setText(player.getPosition()+ "       JerseyNum:" + (player.getJerseyNumber()).toString());
+
         ViewHolder.Num.setText( "ContractUtil:   "+player.getContractUntil());
+
+
     }
 
     @Override

@@ -95,6 +95,7 @@ public class LeagueTabFragment extends Fragment implements SwipeRefreshLayout.On
     }
 
     private void getTab() {
+        try{
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
         Call<LeagueTable> call = cmp.getLeagueTable(CompAdapter.newHrefC);
 
@@ -110,7 +111,10 @@ public class LeagueTabFragment extends Fragment implements SwipeRefreshLayout.On
             public void onFailure(Call<LeagueTable> call, Throwable t) {
             }
 
-        });
+        });}
+        catch(Exception e ){
+            Toast.makeText(getContext(),"there are",Toast.LENGTH_SHORT);
+        }
 
     }
 

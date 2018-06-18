@@ -36,7 +36,7 @@ public class PageAdapter extends FragmentPagerAdapter {
             case 1:
                 return (TodayFragment.newInstance(position, this.colors[position]));
             case 2:
-                return (FavoritFragment.newInstance(position, this.colors[position]));
+                return (TodayFragment.newInstance(position, this.colors[position]));
         }
         return null;
 

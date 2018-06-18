@@ -48,7 +48,7 @@ public class DetailAdapter extends FragmentPagerAdapter {
             case 1:
                 return ("Classement");
             case 2:
-                return ("Fixtures");
+                return ("parties jouées");
         }
         return null;
 

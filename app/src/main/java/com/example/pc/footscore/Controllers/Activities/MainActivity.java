@@ -1,6 +1,8 @@
 package com.example.pc.footscore.Controllers.Activities;
 
 import android.app.Dialog;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,14 +15,19 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
+import com.example.pc.footscore.Adapters.FixturesAdapter;
 import com.example.pc.footscore.Adapters.PageAdapter;
 import com.example.pc.footscore.Controllers.Fragments.FavoritFragment;
+import com.example.pc.footscore.Controllers.Fragments.FixturesFragment;
+import com.example.pc.footscore.Controllers.Fragments.TodayFragment;
 import com.example.pc.footscore.R;
+import com.example.pc.footscore.Views.TeamDetail;
 
 import static android.app.PendingIntent.getActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Dialog dialog;
+    private FixturesFragment refrech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +60,30 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Dialog dialog=new Dialog(this);
-            final CalendarView cv=dialog.findViewById(R.id.calendarView);
-            Button btn=dialog.findViewById(R.id.button);
+            Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.calendar);
+            final CalendarView cv = dialog.findViewById(R.id.calendarView);
+            final Button btn = dialog.findViewById(R.id.button);
             dialog.setCancelable(true);
             dialog.show();
-            btn.setOnClickListener(new View.OnClickListener() {
+            cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
                 @Override
-                public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, (int) cv.getDate() +"", Toast.LENGTH_SHORT).show();
+                public void onSelectedDayChange(CalendarView view, int year, int month,
+                                                int dayOfMonth) {
+
+                      final String date = ("Date is : " + dayOfMonth + " / " + (month + 1) + " / " + year);
+                    Toast.makeText(MainActivity.this, date, Toast.LENGTH_LONG).show();
+                    btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            refrech.onRefresh();
+
+
+                        }
+                    });
+
                 }
             });
 
@@ -71,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
     private void configureViewPager() {

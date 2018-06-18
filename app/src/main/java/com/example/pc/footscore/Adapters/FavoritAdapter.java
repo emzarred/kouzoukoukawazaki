@@ -35,22 +35,18 @@ public class FavoritAdapter extends RecyclerView.Adapter {
     public static String date, home, score, away;
     private Context mContext;
 private List<Fixture>data;
-    public FavoritAdapter( List <Fixture> data)
+   /* public FavoritAdapter( List <Fixture> data)
 
     {
 
         this.data = data;
 
-    }
+    }*/
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-SharedPreferences pref=mContext.getSharedPreferences("data",mContext.MODE_PRIVATE);
-        date = pref.getString("date", "");
-        home = pref.getString("home", "");
-        score = pref.getString("score", "");
-        away = pref.getString("away", "");
+
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.day_cell, parent, false);
 
@@ -63,10 +59,16 @@ SharedPreferences pref=mContext.getSharedPreferences("data",mContext.MODE_PRIVAT
         final Fixture fixture = data.get(position);
 
 
-        TvDate.setText(fixture.getDate());
-        TvHome.setText(fixture.getHomeTeamName());
-        TvScore.setText(fixture.getStatus());
-        TvAway.setText((CharSequence) fixture.getAwayTeamName());
+        SharedPreferences pref=mContext.getSharedPreferences("data",mContext.MODE_PRIVATE);
+        date = pref.getString("date", "");
+        home = pref.getString("home", "");
+        score = pref.getString("score", "");
+        away = pref.getString("away", "");
+
+        TvDate.setText(date);
+        TvHome.setText(home);
+        TvScore.setText(score);
+        TvAway.setText(away);
         if (!check.isChecked() ) {
             TvDate.setVisibility(View.GONE);
             TvHome.setVisibility(View.GONE);

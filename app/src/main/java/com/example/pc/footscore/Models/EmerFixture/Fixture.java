@@ -1,22 +1,22 @@
-package com.example.pc.footscore.Models.Head2Head;
+package com.example.pc.footscore.Models.EmerFixture;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by pc on 09/05/2018.
+ * Created by pc on 11/06/2018.
  */
 
-public class Fixture_ {
-   /* @SerializedName("_links")
+public class Fixture {
+    @SerializedName("_links")
     @Expose
-    private Links_____ links;*/
+    private Links links;
     @SerializedName("date")
     @Expose
     private String date;
     @SerializedName("status")
     @Expose
-    private Object status;
+    private String status;
     @SerializedName("matchday")
     @Expose
     private Integer matchday;
@@ -28,18 +28,18 @@ public class Fixture_ {
     private String awayTeamName;
     @SerializedName("result")
     @Expose
-    private Result_____ result;
+    private Result result;
     @SerializedName("odds")
     @Expose
     private Object odds;
 
-   /* public Links_____ getLinks() {
+    public Links getLinks() {
         return links;
     }
 
-    public void setLinks(Links_____ links) {
+    public void setLinks(Links links) {
         this.links = links;
-    }*/
+    }
 
     public String getDate() {
         return date;
@@ -49,11 +49,11 @@ public class Fixture_ {
         this.date = date;
     }
 
-    public Object getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Object status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -81,11 +81,11 @@ public class Fixture_ {
         this.awayTeamName = awayTeamName;
     }
 
-    public Result_____ getResult() {
+    public Result getResult() {
         return result;
     }
 
-    public void setResult(Result_____ result) {
+    public void setResult(Result result) {
         this.result = result;
     }
 

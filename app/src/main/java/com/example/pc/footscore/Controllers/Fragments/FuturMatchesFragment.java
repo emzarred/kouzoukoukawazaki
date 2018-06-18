@@ -99,6 +99,7 @@ public class FuturMatchesFragment extends Fragment implements SwipeRefreshLayout
     }
 
     private void getMatches() {
+        try{
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
         Call<TeamFix> call = cmp.getAllFutureFixtures(TeamAdapter.newHrefF,"home");
 
@@ -115,7 +116,10 @@ public class FuturMatchesFragment extends Fragment implements SwipeRefreshLayout
             public void onFailure(Call<TeamFix> call, Throwable t) {
             }
 
-        });
+        });}
+        catch(Exception e ){
+            Toast.makeText(getContext(),"there are",Toast.LENGTH_SHORT);
+        }
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.pc.footscore.Controllers.Activities.MainActivity;
 import com.example.pc.footscore.Models.FixturesModele.Fixture;
 import com.example.pc.footscore.R;
 
@@ -23,6 +24,7 @@ public class FixturesAdapter extends RecyclerView.Adapter {
 
 
 
+
     public FixturesAdapter(List<Fixture> list) {
         this.list = list;
 
@@ -34,6 +36,7 @@ public class FixturesAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.fix_cell, parent, false);
         return new FixturesAdapter.ViewHolder(view);
+
     }
 
     @Override
@@ -81,3 +84,6 @@ public class FixturesAdapter extends RecyclerView.Adapter {
     }
 
 }
+
+
+

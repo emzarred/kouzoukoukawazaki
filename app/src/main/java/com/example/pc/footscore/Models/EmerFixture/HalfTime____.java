@@ -1,22 +1,19 @@
-package com.example.pc.footscore.Models.Head2Head;
+package com.example.pc.footscore.Models.EmerFixture;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by pc on 09/05/2018.
+ * Created by pc on 11/06/2018.
  */
 
-public class Result__ {
+public class HalfTime____ {
     @SerializedName("goalsHomeTeam")
     @Expose
     private Integer goalsHomeTeam;
     @SerializedName("goalsAwayTeam")
     @Expose
     private Integer goalsAwayTeam;
-    @SerializedName("halfTime")
-    @Expose
-    private HalfTime halfTime;
 
     public Integer getGoalsHomeTeam() {
         return goalsHomeTeam;
@@ -32,13 +29,5 @@ public class Result__ {
 
     public void setGoalsAwayTeam(Integer goalsAwayTeam) {
         this.goalsAwayTeam = goalsAwayTeam;
-    }
-
-    public HalfTime getHalfTime() {
-        return halfTime;
-    }
-
-    public void setHalfTime(HalfTime halfTime) {
-        this.halfTime = halfTime;
     }
 }

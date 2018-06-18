@@ -105,7 +105,7 @@ public class FixturesFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     private void getFixturess() {
 
-
+try{
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
         Call<Fixtures> call = cmp.getAllFixtures(CompAdapter.newHrefF);
 
@@ -123,7 +123,10 @@ public class FixturesFragment extends Fragment implements SwipeRefreshLayout.OnR
             public void onFailure(Call<Fixtures> call, Throwable t) {
             }
 
-        });
+        });}
+        catch(Exception e ){
+Toast.makeText(getContext(),"there are",Toast.LENGTH_SHORT);
+        }
 
 
     }

@@ -2,9 +2,9 @@ package com.example.pc.footscore.Retrofits;
 
 
 import com.example.pc.footscore.Models.CompetitionModele.Competition;
+import com.example.pc.footscore.Models.EmerFixture.Head2head;
 import com.example.pc.footscore.Models.FixturesModele.Fixtures;
-import com.example.pc.footscore.Models.Head2Head.Head2head;
-import com.example.pc.footscore.Models.Head2Head.Heads;
+
 import com.example.pc.footscore.Models.LeagueTableModele.LeagueTable;
 import com.example.pc.footscore.Models.PlayersModele.Players;
 import com.example.pc.footscore.Models.TeamFixModele.TeamFix;
@@ -15,6 +15,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -40,13 +41,13 @@ public interface ApiInterface {
     @GET("{link}")
     Call<Players> getAllPlayers(@Path("link") String Link);
 
-    @GET("fixtures")
+    @GET("fixtures/?timeFrame=p23")
     Call<Today> getAllMatchs();
 
     @GET("{link}")
     Call<TeamFix> getAllFutureFixtures(@Path("link") String Link,@Query("venue") String venue);
 
-    @GET ("http://api.football-data.org/v1/fixtures/149461")
+    @GET ("fixtures/147011")
     Call<Head2head> getAllHeads();
 
 

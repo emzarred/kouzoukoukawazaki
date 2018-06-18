@@ -104,7 +104,7 @@ public class TeamFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 
         //int id= CompAdapter.ViewHolder.Id;
-
+try{
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
 
         Call<Teams> call = cmp.getAllTeams(CompAdapter.newHrefE);
@@ -121,7 +121,10 @@ public class TeamFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             public void onFailure(Call<Teams> call, Throwable t) {
             }
 
-        });
+        });}
+        catch(Exception e){
+    Toast.makeText(getContext(),"there are no available informations",Toast.LENGTH_SHORT).show();
+        }
 
     }
     @Override

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.ahmadrosid.svgloader.SvgLoader;
@@ -53,19 +54,23 @@ public static String newHrefF;
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         final Team team = list.get(position);
+        holder.getAdapterPosition();
+        holder.setIsRecyclable(false);
 
-        Log.d("TeamAdapter", "onBindViewHolder: "+team.getCrestUrl());
 
+if(!(team.getCrestUrl() ==null))
+{
 
         SvgLoader.pluck()
                 .with(activity)
                 .setPlaceHolder(R.drawable.notfound,R.drawable.notfound)
-                .load(team.getCrestUrl(), ViewHolder.flag);
+                .load(team.getCrestUrl(), ViewHolder.flag);}
         ViewHolder.caption.setText(team.getName());
         holder.setIsRecyclable(false);
         ViewHolder.caption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try{
                 holder.getAdapterPosition();
                 Links_ link=team.getLinks();
                 String href=link.getPlayers().getHref();
@@ -74,8 +79,12 @@ public static String newHrefF;
                 String hrefF=link.getFixtures().getHref();
 
                 newHrefF=hrefF.substring(32,50);
+               //Toast.makeText(ViewHolder.caption.getContext(), "link"+newHref,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(ViewHolder.caption.getContext(),TeamDetail.class);
-                ViewHolder.caption.getContext().startActivity(intent);
+                ViewHolder.caption.getContext().startActivity(intent);}
+                catch(Exception e ){
+                    Toast.makeText(ViewHolder.caption.getContext(),"there are",Toast.LENGTH_SHORT);
+                }
             }
         });
 

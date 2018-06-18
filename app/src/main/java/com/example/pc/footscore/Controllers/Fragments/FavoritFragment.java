@@ -34,7 +34,7 @@ public class FavoritFragment extends Fragment implements SwipeRefreshLayout.OnRe
     private static final String KEY_COLOR = "color";
 
     private List<Fixture> list;
-    private RecyclerView rv;
+   private RecyclerView rv;
 
     private SwipeRefreshLayout spr;
 
@@ -71,9 +71,9 @@ public class FavoritFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
         // 4 - Get widgets from layout and serialise it
         LinearLayout rootView = (LinearLayout) result.findViewById(R.id.fragment_page_rootview);
-        rv=(RecyclerView)result.findViewById(R.id.list);
+       rv=(RecyclerView)result.findViewById(R.id.list);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        rv.setAdapter(new FavoritAdapter(list));
+        //rv.setAdapter(new FavoritAdapter(list));
 
 
        /* if (check.isChecked() == false) {

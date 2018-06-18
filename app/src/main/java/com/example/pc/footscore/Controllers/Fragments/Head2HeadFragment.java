@@ -98,6 +98,9 @@ List<Fixture> list;
     }
 
     private void getMatches() {
+        try {
+
+
         final ApiInterface cmp = retrofit.create(ApiInterface.class);
         Call<TeamFix> call = cmp.getAllFutureFixtures(TeamAdapter.newHrefF,"away");
 
@@ -114,7 +117,10 @@ List<Fixture> list;
             public void onFailure(Call<TeamFix> call, Throwable t) {
             }
 
-        });
+        });}
+        catch(Exception e ){
+            Toast.makeText(getContext(),"there are",Toast.LENGTH_SHORT);
+        }
     }
 
     @Override

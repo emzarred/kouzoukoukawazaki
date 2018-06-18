@@ -1,17 +1,16 @@
-package com.example.pc.footscore.Models.Head2Head;
+package com.example.pc.footscore.Models.EmerFixture;
 
-import com.example.pc.footscore.Models.FixturesModele.Result;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by pc on 30/05/2018.
+ * Created by pc on 11/06/2018.
  */
 
-public class Fixture {
-    /*  @SerializedName("_links")
+class LastAwayWinAwayTeam {
+   /* @SerializedName("_links")
     @Expose
-    private Links_ links;*/
+    private Links___ links;*/
     @SerializedName("date")
     @Expose
     private String date;
@@ -29,24 +28,18 @@ public class Fixture {
     private String awayTeamName;
     @SerializedName("result")
     @Expose
-    private Result result;
+    private Result___ result;
     @SerializedName("odds")
     @Expose
     private Object odds;
-    @SerializedName("goalsHomeTeam")
-    @Expose
-    private Integer goalsHomeTeam;
-    @SerializedName("goalsAwayTeam")
-    @Expose
-    private Integer goalsAwayTeam;
 
-  /*  public Links_ getLinks() {
+   /* public Links___ getLinks() {
         return links;
     }
 
-    public void setLinks(Links_ links) {
-        this.links = links;*/
-
+    public void setLinks(Links___ links) {
+        this.links = links;
+    }*/
 
     public String getDate() {
         return date;
@@ -88,11 +81,11 @@ public class Fixture {
         this.awayTeamName = awayTeamName;
     }
 
-    public Result getResult() {
+    public Result___ getResult() {
         return result;
     }
 
-    public void setResult(Result result) {
+    public void setResult(Result___ result) {
         this.result = result;
     }
 
@@ -103,4 +96,5 @@ public class Fixture {
     public void setOdds(Object odds) {
         this.odds = odds;
     }
+
 }

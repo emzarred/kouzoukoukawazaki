@@ -1,6 +1,8 @@
 package com.example.pc.footscore.Adapters;
 
-import android.annotation.SuppressLint;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.SurfaceView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,21 +14,17 @@ import android.widget.TextView;
 import com.example.pc.footscore.Models.FixturesModele.Fixture;
 import com.example.pc.footscore.R;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.List;
-import java.util.Locale;
-
-import static android.app.PendingIntent.getActivity;
-import static android.support.constraint.solver.widgets.ConstraintWidget.GONE;
-
 /**
  * Created by pc on 07/05/2018.
  */
 
 public class TodayAdapter extends RecyclerView.Adapter {
     private List<Fixture> list;
-    // private List<Result> listR;
+    public static String date, home, score, away;
+    private Context mContext;
+    SharedPreferences sharedPreferences;
     public TodayAdapter(List<Fixture> list) {
         this.list = list;
 
@@ -42,23 +40,47 @@ public class TodayAdapter extends RecyclerView.Adapter {
         return new TodayAdapter.ViewHolder(view);
     }
 
-    @SuppressLint("WrongConstant")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Fixture fixture = list.get(position);
-        String c = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-if((fixture.getDate().substring(0,Math.min(fixture.getDate().length(),10)).equals(c)   )){
+       // String c = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        //String c =MainActivity.date;
+//if((fixture.getDate().substring(0,Math.min(fixture.getDate().length(),10)).equals(c)   )){
         TodayAdapter.ViewHolder.TvDate.setText(fixture.getDate().substring(11,19));
         TodayAdapter.ViewHolder.TvHome.setText(fixture.getHomeTeamName());
-        TodayAdapter.ViewHolder.TvScore.setText( fixture.getStatus());
-        TodayAdapter.ViewHolder.TvAway.setText(fixture.getAwayTeamName());}
+        if((fixture.getResult().getGoalsAwayTeam()==null) &&(fixture.getResult().getGoalsHomeTeam()==null)){
+        TodayAdapter.ViewHolder.TvScore.setText( fixture.getStatus());}
         else{
+            ViewHolder.TvScore.setText(fixture.getResult().getGoalsHomeTeam()+"-"+fixture.getResult().getGoalsAwayTeam());
+        }
+        TodayAdapter.ViewHolder.TvAway.setText(fixture.getAwayTeamName());
+       /*else{
         ViewHolder.TvDate.setVisibility(View.GONE);
     ViewHolder.TvHome.setVisibility(View.GONE);
     ViewHolder.TvScore.setVisibility(View.GONE);
     ViewHolder.TvAway.setVisibility(View.GONE);
     ViewHolder.check.setVisibility(View.GONE);
-    ViewHolder.devider.setVisibility(GONE);}
+    ViewHolder.devider.setVisibility(GONE);}*/
+        date= (String) ViewHolder.TvDate.getText();
+        home= (String) ViewHolder.TvHome.getText();
+        score= (String) ViewHolder.TvScore.getText();
+        away= (String) ViewHolder.TvAway.getText();
+    ViewHolder.check.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if(ViewHolder.check.isChecked()){
+            SharedPreferences sharedPreferences = mContext.getSharedPreferences("data",mContext.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("date",date);
+            editor.putString("home",home );
+            editor.putString("score",score);
+            editor.putString("away",away);
+            editor.apply();
+
+        }
+
+    }
+});
 
 
 
